@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import NavigationLink from "./../NavigationLink";
 
-import MenuIcon from "./../MenuIcon";
+import NavigationLink from "components/NavigationLink";
+import MenuIcon from "components/MenuIcon";
 
 export function Navigation() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
