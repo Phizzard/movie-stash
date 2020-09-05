@@ -1,5 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+import { ReactQueryDevtools } from "react-query-devtools";
 
 import Home from "./pages/Home";
 import Liked from "./pages/Liked";
@@ -17,6 +18,7 @@ function App() {
           <Home />
         </Route>
       </Switch>
+      <ReactQueryDevtools initialIsOpen />
     </div>
   );
 }
