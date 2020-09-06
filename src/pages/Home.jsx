@@ -7,22 +7,7 @@ import MoviePoster from "components/MoviePoster";
 
 export function Home() {
   const { data } = usePopularMovies();
-  const [likedMovies, setLikedMovies] = useLikedMovies();
-
-  function handleOnHeartClick(movieData) {
-    let newLikedMovies = {};
-
-    if (!movieData.isLiked) {
-      newLikedMovies = {
-        ...likedMovies,
-        [movieData.id]: { ...movieData, isLiked: true },
-      };
-    } else {
-      const { [movieData.id]: otherMovie, ...rest } = likedMovies;
-      newLikedMovies = rest;
-    }
-    setLikedMovies(newLikedMovies);
-  }
+  const [likedMovies, setIsMovieLiked] = useLikedMovies();
 
   return (
     <>
@@ -47,7 +32,7 @@ export function Home() {
                       imageAlt={movie.title}
                       imagePath={movie.poster_path}
                       imageWidth="w500"
-                      onHeartClick={handleOnHeartClick}
+                      onHeartClick={setIsMovieLiked}
                       isLiked={likedMovies[movie.id]}
                     />
                   );

@@ -5,22 +5,7 @@ import useLikedMovies from "hooks/useLikedMovies";
 import MoviePoster from "components/MoviePoster";
 
 export function Liked() {
-  const [movies, setLikedMovies] = useLikedMovies();
-
-  function handleOnHeartClick(movieData) {
-    let newLikedMovies = {};
-
-    if (!movieData.isLiked) {
-      newLikedMovies = {
-        ...movies,
-        [movieData.id]: { ...movieData, isLiked: true },
-      };
-    } else {
-      const { [movieData.id]: otherMovie, ...rest } = movies;
-      newLikedMovies = rest;
-    }
-    setLikedMovies(newLikedMovies);
-  }
+  const [movies, setIsMovieLiked] = useLikedMovies();
 
   return (
     <>
@@ -44,7 +29,7 @@ export function Liked() {
                     imageAlt={movie.title}
                     imagePath={movie.imagePath}
                     imageWidth="w500"
-                    onHeartClick={handleOnHeartClick}
+                    onHeartClick={setIsMovieLiked}
                     isLiked={movies[movie.id]}
                   />
                 );
