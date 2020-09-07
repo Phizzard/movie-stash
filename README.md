@@ -18,6 +18,10 @@ This project uses `react-scripts` to run development and production builds.
 
 Recommended node version `12.18.3^`
 
+create and set env variable for API
+
+`REACT_APP_MOVIEDB_API_KEY=some-kind-of-key`
+
 install packages running
 
 `yarn` or `npm install`
