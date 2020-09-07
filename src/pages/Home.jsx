@@ -4,9 +4,10 @@ import usePopularMovies from "hooks/usePopularMovies";
 import useLikedMovies from "hooks/useLikedMovies";
 
 import MoviePoster from "components/MoviePoster";
+import MoviePosterSkeleton from "components/MoviePosterSkeleton";
 
 export function Home() {
-  const { data } = usePopularMovies();
+  const { data, isLoading } = usePopularMovies();
   const [likedMovies, setIsMovieLiked] = useLikedMovies();
 
   return (
@@ -22,7 +23,14 @@ export function Home() {
         <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
           <div className="px-4 py-6 sm:px-0">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-12">
-              {data &&
+              {isLoading ? (
+                <>
+                  {[...Array(10).keys()].map((index) => (
+                    <MoviePosterSkeleton key={index} />
+                  ))}
+                </>
+              ) : (
+                data &&
                 data.results.map((movie) => {
                   return (
                     <MoviePoster
@@ -36,7 +44,8 @@ export function Home() {
                       isLiked={likedMovies[movie.id]}
                     />
                   );
-                })}
+                })
+              )}
             </div>
           </div>
         </div>
