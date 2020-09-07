@@ -31,7 +31,7 @@ export function Home() {
                       title={movie.title}
                       imageAlt={movie.title}
                       imagePath={movie.poster_path}
-                      imageWidth="w500"
+                      imageWidth="w400"
                       onHeartClick={setIsMovieLiked}
                       isLiked={likedMovies[movie.id]}
                     />

@@ -28,7 +28,7 @@ export function Liked() {
                     title={movie.title}
                     imageAlt={movie.title}
                     imagePath={movie.imagePath}
-                    imageWidth="w500"
+                    imageWidth="w400"
                     onHeartClick={setIsMovieLiked}
                     isLiked={movies[movie.id]}
                   />
